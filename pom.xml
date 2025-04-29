@@ -17,6 +17,7 @@
         <java.version>24</java.version>
         <h2.version>2.3.232</h2.version>
         <lombok.version>1.18.38</lombok.version>
+        <commons-validator.version>1.9.0</commons-validator.version>
     </properties>
 
     <dependencyManagement>
@@ -90,6 +91,11 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
             <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>${commons-validator.version}</version>
         </dependency>
     </dependencies>
 
