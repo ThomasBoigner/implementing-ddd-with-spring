@@ -1,9 +1,11 @@
 package library.catalog.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.util.Assert;
 
 @Getter
+@AllArgsConstructor
 public class Book {
     private BookId id;
     private String title;

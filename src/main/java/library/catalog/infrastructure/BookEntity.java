@@ -3,9 +3,10 @@ package library.catalog.infrastructure;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import library.catalog.domain.Book;
+import library.catalog.domain.BookId;
+import library.catalog.domain.Isbn;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.UUID;
 
@@ -22,5 +23,9 @@ public class BookEntity {
         this.id = book.getId().id();
         this.title = book.getTitle();
         this.isbn = book.getIsbn().value();
+    }
+
+    public Book toBook() {
+        return new Book(new BookId(this.id), title, new Isbn(this.isbn));
     }
 }
