@@ -6,7 +6,9 @@ import library.catalog.domain.CopyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 
@@ -24,5 +26,10 @@ public class JpaCopyRepository implements CopyRepository {
     @Override
     public Optional<Copy> findById(CopyId id) {
         return copyEntityRepository.findById(id.id()).map(CopyEntity::toCopy);
+    }
+
+    @Override
+    public List<Copy> findAll() {
+        return copyEntityRepository.findAll().stream().map(CopyEntity::toCopy).toList();
     }
 }
