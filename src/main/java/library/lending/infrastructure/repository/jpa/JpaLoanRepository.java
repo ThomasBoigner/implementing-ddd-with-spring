@@ -7,6 +7,9 @@ import library.lending.domain.LoanRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 
 @Repository
@@ -27,5 +30,10 @@ public class JpaLoanRepository implements LoanRepository {
     @Override
     public Loan findByIdOrThrow(LoanId loanId) {
         return loanEntityRepository.findById(loanId.id()).orElseThrow().toLoan();
+    }
+
+    @Override
+    public List<Loan> findAll() {
+        return loanEntityRepository.findAll().stream().map(LoanEntity::toLoan).toList();
     }
 }

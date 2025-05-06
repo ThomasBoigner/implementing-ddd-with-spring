@@ -36,5 +36,4 @@ public class BookController {
         addBookToCatalogUseCase.execute(new Isbn(request.isbn()));
         return ResponseEntity.ok().build();
     }
-
 }
