@@ -1,4 +1,4 @@
-package library.lending.infrastructure;
+package library.lending.infrastructure.repository.jpa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

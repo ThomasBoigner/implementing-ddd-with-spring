@@ -1,4 +1,4 @@
-package library.catalog.infrastructure;
+package library.catalog.infrastructure.repository.jpa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

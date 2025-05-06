@@ -1,5 +1,8 @@
 package library.catalog.domain;
 
+import java.util.List;
+
 public interface BookRepository {
-    public Book save(Book book);
+    Book save(Book book);
+    List<Book> findAll();
 }

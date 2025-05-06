@@ -1,4 +1,4 @@
-package library.catalog.infrastructure;
+package library.catalog.infrastructure.repository.jpa;
 
 import library.catalog.domain.Copy;
 import library.catalog.domain.CopyId;

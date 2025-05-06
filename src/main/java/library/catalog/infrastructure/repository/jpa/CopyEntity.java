@@ -1,4 +1,4 @@
-package library.catalog.infrastructure;
+package library.catalog.infrastructure.repository.jpa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

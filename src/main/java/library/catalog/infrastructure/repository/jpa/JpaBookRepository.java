@@ -1,9 +1,11 @@
-package library.catalog.infrastructure;
+package library.catalog.infrastructure.repository.jpa;
 
 import library.catalog.domain.Book;
 import library.catalog.domain.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 
@@ -16,5 +18,10 @@ public class JpaBookRepository implements BookRepository {
         BookEntity entity = new BookEntity(book);
         bookEntityRepository.save(entity);
         return book;
+    }
+
+    @Override
+    public List<Book> findAll() {
+        return bookEntityRepository.findAll().stream().map(BookEntity::toBook).toList();
     }
 }

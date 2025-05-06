@@ -1,4 +1,4 @@
-package library.lending.infrastructure;
+package library.lending.infrastructure.configuration;
 
 import library.lending.domain.LoanRepository;
 import library.lending.domain.LoanService;

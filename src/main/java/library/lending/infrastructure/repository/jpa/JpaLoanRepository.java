@@ -1,4 +1,4 @@
-package library.lending.infrastructure;
+package library.lending.infrastructure.repository.jpa;
 
 import library.lending.domain.CopyId;
 import library.lending.domain.Loan;
