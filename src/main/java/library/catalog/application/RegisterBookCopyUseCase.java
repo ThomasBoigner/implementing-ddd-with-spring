@@ -6,10 +6,12 @@ import library.catalog.domain.Copy;
 import library.catalog.domain.CopyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 
 @Service
+@Transactional
 public class RegisterBookCopyUseCase {
     private final CopyRepository copyRepository;
 

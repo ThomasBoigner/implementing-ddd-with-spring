@@ -2,12 +2,10 @@ package library.lending.infrastructure.repository.jpa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import library.lending.domain.CopyId;
-import library.lending.domain.Loan;
-import library.lending.domain.LoanId;
-import library.lending.domain.UserId;
+import library.lending.domain.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.AbstractAggregateRoot;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -16,7 +14,7 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @Getter
-public class LoanEntity {
+public class LoanEntity extends AbstractAggregateRoot<LoanEntity> {
     @Id
     private UUID id;
     private UUID copyId;
@@ -32,6 +30,8 @@ public class LoanEntity {
         this.createdAt = loan.getCreatedAt();
         this.expectedReturnDate = loan.getExpectedReturnDate();
         this.returnedAt = loan.getReturnedAt();
+        loan.getLoanCreatedDomainEvents().forEach(this::registerEvent);
+        loan.getLoanClosedDomainEvents().forEach(this::registerEvent);
     }
 
     public Loan toLoan() {
